@@ -10,11 +10,11 @@ Sometimes we only want to learn vocabulary that we can't tell,but learning langu
 ## 如何使用語言小幫手 How to use LanguageAssistant
 
 首先，請先輸入網址(163.23.148.92/LA/login.html)登入到語言小幫手的登入畫面
->*如果你沒有帳號的話，需要先註冊帳號
- >*點擊 CREATE AN ACCOUNT 按鈕，進行註冊
- >*進入到註冊頁面之後
- >*輸入 Useraccount 和 Password 點擊 submit 按鈕之後，即可完成註冊
- >*完成註冊之後，系統會自動導向主頁面
+>* 如果你沒有帳號的話，需要先註冊帳號
+ >* 點擊 CREATE AN ACCOUNT 按鈕，進行註冊
+ >* 進入到註冊頁面之後
+ >* 輸入 Useraccount 和 Password 點擊 submit 按鈕之後，即可完成註冊
+ >* 完成註冊之後，系統會自動導向主頁面
 
 ## Integrate with your tools
 
