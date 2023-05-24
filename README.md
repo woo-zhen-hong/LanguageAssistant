@@ -4,21 +4,36 @@
 
 ## 語言小幫手的目的 The goal of LanguageAssistant
 
-有時候只想背那些自己不會的單字，但是市面的學習語言APP都只能按照某個證照考試的內容下去背單字，為了解決這個問題所以開發了語言小幫手
-Sometimes we only want to learn vocabulary that we can't tell,but learning language applications on the market can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament i devolpe the LanguageAssistant.  
+* 有時候只想背那些自己不會的單字，但是市面上的學習語言APP都只能按照某個證照考試的內容下去背單字，為了解決這個問題所以開發了語言小幫手
+* Sometimes we only want to learn new vocabulary,but learning language applications on the market can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament i devolpe the LanguageAssistant.  
 
-## 如何使用語言小幫手 How to use LanguageAssistant
+## 語言小幫手的登入說明 login instructions of LanguageAssistant
 
 首先，請先輸入網址(163.23.148.92/LA/login.html)登入到語言小幫手的登入畫面
->* 如果你沒有帳號的話，需要先註冊帳號
+* 如果你沒有帳號的話，需要先註冊帳號
  >* 點擊 CREATE AN ACCOUNT 按鈕，進行註冊
  >* 進入到註冊頁面之後
  >* 輸入 Useraccount 和 Password 點擊 submit 按鈕之後，即可完成註冊
  >* 完成註冊之後，系統會自動導向主頁面
+* 如果你有帳號的話，直接在登入畫面輸入 Useraccount 和 password，就可進入到主畫面
 
-## Integrate with your tools
+* First of all,you should input the URL(163.23.148.92/LA/login.html) , and you will see the login page
+* If you don't have an account,you need to register one
+ >* click the CREATE AN ACCOUNT button to register
+ >* After enter the register page
+ >* You will finish the register after inputing the Useraccount and Password and clicking the submit button
+ >* System will redirect to the home page after you finish the register
+* If you have an account, you can input your Useraccount and Password in the login page and you can enter the home page
 
-- [ ] [Set up project integrations](https://gitlab.com/woozhenhong/languageassistant/-/settings/integrations)
+## 語言小幫手的功能說明（選擇題庫） function(choose Question Bank) instructions of LanguageAssistant
+
+進入到主頁面之後，可以看到三個主要功能
+* 選擇題庫
+ >* 點選選擇題庫按鈕之後，他會出現一個小視窗，可以選擇要編輯/查看的題庫或是建一個新的題庫
+ >>* 如果要編輯/查看題庫，編輯/查看的按鈕上方有下拉式選單可以選擇題庫
+ >> * 選擇完題庫之後，點擊編輯/查看按鈕，就會進入編輯/查看題庫頁面
+ >>* 如果要建一個新的題庫，點擊建立一個新題庫按鈕，就會進入新增題庫頁面
+ >>* 如果要使用別的功能，則點擊關閉視窗按鈕
 
 ## Collaborate with your team
 
