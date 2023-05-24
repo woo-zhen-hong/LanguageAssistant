@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>題庫列表</title>
+    <link href="WordsPractice.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+        <h1>題庫列表</h1>
+        
+        <table id="table" 
+                     data-toggle="table"
+                     data-search="true"
+                     data-filter-control="true" 
+                     data-show-export="true"
+                     data-click-to-select="true"
+                     data-toolbar="#toolbar">
+            <thead class="table-dark">
+                <tr>
+                    <th>題庫單字</th>
+                    <th>查看翻譯</th>
+                    <th>練習</th>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E1" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition1" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice1" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E2" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition2" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice2" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E3" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition3" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice3" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E4" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition4" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice4" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E5" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition5" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice5" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E6" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition6" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice6" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E7" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition7" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice7" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E8" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition8" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice8" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E9" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition9" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice9" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E10" type="text" name="input" >
+                    </td>
+                    <td>
+                        <input id="definition10" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="practice10" type="text" name="input">
+                    </td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <a href="home.php">
+        <input type="button" value="上一頁" name="backToHome" style="width:150px;height:30px;"><br><br>
+    </a>
+    <form action="translate.php" method="post" id = ch onsubmit="return tran()"> 
+        <button class="changeWords">看翻譯</button>
+    </form>
+    <button type="button" class="cleanTranslate" onclick="cleantranslate()">清除翻譯</button>
+    <button type="button" class="cleanPractice" onclick="cleanpractice()">清除練習</button>
+</body>
+</html>
+<script type="text/JavaScript">
+
+    $(function () {
+        getpackage();
+    })
+
+    function getpackage() {
+        var url = new URL(location.href)
+        $.ajax( {
+                "url": "WordsPractice.php?practiceList=" + url.searchParams.get('practiceList'),
+                "type": "GET",
+                "datatype": "json",
+                success: function(data) {
+                    //console.log(data)
+                    document.getElementById("E1").value = data.E1;
+                    document.getElementById("E2").value = data.E2;
+                    document.getElementById("E3").value = data.E3;
+                    document.getElementById("E4").value = data.E4;
+                    document.getElementById("E5").value = data.E5;
+                    document.getElementById("E6").value = data.E6;
+                    document.getElementById("E7").value = data.E7;
+                    document.getElementById("E8").value = data.E8;
+                    document.getElementById("E9").value = data.E9;
+                    document.getElementById("E10").value = data.E10;
+                },
+                error: function(jqXHR) {
+                    alert("發生錯誤: " + jqXHR.status);
+                }
+            });
+        
+    }
+
+    function cleantranslate(){
+        document.getElementById("definition1").value = "";
+        document.getElementById("definition2").value = "";
+        document.getElementById("definition3").value = "";
+        document.getElementById("definition4").value = "";
+        document.getElementById("definition5").value = "";
+        document.getElementById("definition6").value = "";
+        document.getElementById("definition7").value = "";
+        document.getElementById("definition8").value = "";
+        document.getElementById("definition9").value = "";
+        document.getElementById("definition10").value = "";
+    }
+
+    function  cleanpractice() {
+        document.getElementById("practice1").value = "";
+        document.getElementById("practice2").value = "";
+        document.getElementById("practice3").value = "";
+        document.getElementById("practice4").value = "";
+        document.getElementById("practice5").value = "";
+        document.getElementById("practice6").value = "";
+        document.getElementById("practice7").value = "";
+        document.getElementById("practice8").value = "";
+        document.getElementById("practice9").value = "";
+        document.getElementById("practice10").value = "";
+    }
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function tran(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E1').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition1").value = Res["translatedText"];  //將a的內容改寫
+                    }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E2').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition2").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E3').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition3").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E4').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition4").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E5').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition5").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E6').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition6").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E7').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition7").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E8').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition8").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E9').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition9").value = Res["translatedText"];  //將a的內容改寫
+                    }
+            },
+        });
+
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#E10').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition10").value = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+</script>

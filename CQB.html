@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>題庫列表</title>
+    <link href="CQB.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+        <h1>題庫列表</h1>
+        
+        <table id="table" 
+                     data-toggle="table"
+                     data-search="true"
+                     data-filter-control="true" 
+                     data-show-export="true"
+                     data-click-to-select="true"
+                     data-toolbar="#toolbar">
+            <thead class="table-dark">
+                <tr>
+                    <th>題庫單字</th>
+                    <th>查看翻譯</th>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e1" onsubmit="return tran1()">
+                            <input id="E1" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition1">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e2" onsubmit="return tran2()">
+                            <input id="E2" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition2">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e3" onsubmit="return tran3()">
+                            <input id="E3" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition3">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e4" onsubmit="return tran4()">
+                            <input id="E4" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition4">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e5" onsubmit="return tran5()">
+                            <input id="E5" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition5">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e6" onsubmit="return tran6()">
+                            <input id="E6" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition6">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e7" onsubmit="return tran7()">
+                            <input id="E7" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition7">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e8" onsubmit="return tran8()">
+                            <input id="E8" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition8">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e9" onsubmit="return tran9()">
+                            <input id="E9" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition9">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <form method="POST" action="translate.php" id="e10" onsubmit="return tran10()">
+                            <input id="E10" type="text" name="input">
+                            <input type="submit" value="翻譯">
+                            <a id="definition10">&nbsp;</a>
+                        </form>
+                    </td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <a href="home.php">
+        <input type="button" value="上一頁" name="backToHome" style="width:150px;height:30px;"><br><br>
+    </a>
+    <form action="createWords.php" method="post" id = ch onsubmit="return create()"> 
+              <button class="createWords">建立</button>
+              <a id="wor"></a>
+    </form>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function tran1(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e1').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition1").innerHTML = Res["translatedText"];  //將a的內容改寫
+                    }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+    
+    function tran2(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e2').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition2").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran3(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e3').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition3").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran4(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e4').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition4").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran5(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e5').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition5").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran6(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e6').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition6").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran7(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e7').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition7").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran8(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e8').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition8").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran9(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e9').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition9").innerHTML = Res["translatedText"];  //將a的內容改寫
+                    }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function tran10(){
+        $.ajax({
+            url: 'translate.php',              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',             // 回傳資料會是 json 格式
+            data: $('#e10').serialize(),  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res); //將Json的字串換成陣列、物件
+                    if(Res["status"] == "success"){
+                        document.getElementById("definition10").innerHTML = Res["translatedText"];  //將a的內容改寫
+                }
+            },
+        });
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    function create(){
+        var words = {
+            "E1" : document.getElementById("E1").value,
+            "E2" : document.getElementById("E2").value,
+            "E3" : document.getElementById("E3").value,
+            "E4" : document.getElementById("E4").value,
+            "E5" : document.getElementById("E5").value,
+            "E6" : document.getElementById("E6").value,
+            "E7" : document.getElementById("E7").value,
+            "E8" : document.getElementById("E8").value,
+            "E9" : document.getElementById("E9").value,
+            "E10" : document.getElementById("E10").value
+        }
+        var url = new URL(location.href)
+        $.ajax({
+            url: "createWords.php?boxname=" + url.searchParams.get('boxname'),              // 要傳送的頁面
+            method: 'POST',               // 使用 POST 方法傳送請求
+            dataType: 'json',           // 回傳資料會是 json 格式
+            data: {json: JSON.stringify(words)},  // 將表單資料用打包起來送出去
+            success: function(res){
+                // 成功以後會執行這個方法
+                window.alert("建立成功");
+                window.location.href="home.php";
+            },
+        });
+        
+        return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+</script>

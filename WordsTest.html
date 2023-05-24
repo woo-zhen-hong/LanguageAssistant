@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>題庫列表</title>
+    <link href="WordsTest.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>題庫列表</h1>
+
+        <table id="table" data-toggle="table" data-search="true" data-filter-control="true" data-show-export="true"
+            data-click-to-select="true" data-toolbar="#toolbar">
+            <thead class="table-dark">
+                <tr>
+                    <th>題庫單字</th>
+                    <th>答案</th>
+                    <th>測驗</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input id="E1" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition1" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test1" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E2" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition2" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test2" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E3" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition3" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test3" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E4" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition4" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test4" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E5" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition5" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test5" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E6" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition6" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test6" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E7" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition7" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test7" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E8" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition8" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test8" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E9" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition9" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test9" type="text" name="input">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="E10" type="text" name="input">
+                    </td>
+                    <td>
+                        <input id="definition10" type="text" name="input" disabled>
+                    </td>
+                    <td>
+                        <input id="test10" type="text" name="input">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="home.php">
+        <input type="button" value="上一頁" name="backToHome" style="width:150px;height:30px;"><br><br>
+    </a>
+    <button class="checkAnswer" onclick="tran()">對答案</button>
+    <p id="score">&nbsp;</p>
+</body>
+
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/JavaScript">
+
+    var data_count = 0;
+    var score = 0;
+
+    $(function () {
+        getpackage();
+    })
+
+    async function getpackage() {
+        var url = new URL(location.href)
+        axios.get("WordsTest.php?testList=" + url.searchParams.get('testList'))
+        .then( (res) => {
+            data_count = count(res.data);
+            for (key in res.data) {
+                document.getElementById(key).value = res.data[key];
+            }
+        })
+    }
+
+    async function tran() {
+        for (let i = 1; i <= data_count; i++) {
+            await axios.post(`translate.php`, $('#E' + i).serialize())
+            .then( (res) => {
+                // 成功以後會執行這個方法
+                var Res = JSON.parse(res.data); //將Json的字串換成陣列、物件
+                if (Res["status"] == "success") {
+                    document.getElementById("definition" + i).value = Res["translatedText"];  //將a的內容改寫
+                    if (document.getElementById("definition" + i).value == document.getElementById("test" + i).value) {
+                        score += 100/data_count;
+                    }
+                }
+                document.getElementById("score").innerText = score;
+            })
+            .catch((error) => {
+                alert("發生錯誤");
+            })
+        }
+        update(score);
+        // return false;  // 阻止瀏覽器跳轉到 translate.php，因為已經用 ajax 送出去了
+    }
+
+    async function update(score) {
+        var url = new URL(location.href);
+        const form = new FormData();
+        form.append('score', score);
+        form.append('testList', url.searchParams.get('testList'));
+        await axios.post(`storeGrade.php`, form)
+        .then( (res) => {
+            window.alert("考試完畢");
+            window.location.href="home.php";
+        })
+        .catch((error) => {
+                alert("發生錯誤");
+            })
+    }
+
+    function count(data) {
+        let count = 0;
+        for (key in data) {
+            if (data[key] !== ""){
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+</script>
