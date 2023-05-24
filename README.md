@@ -5,7 +5,7 @@
 ## 語言小幫手的目的 The goal of LanguageAssistant
 
 * 有時候只想背那些自己不會的單字，但是市面上的學習語言APP都只能按照某個證照考試的內容下去背單字，為了解決這個問題所以開發了語言小幫手
-* Sometimes we only want to learn new vocabulary,but learning language applications on the market can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament i devolpe the LanguageAssistant.  
+* Sometimes we only want to learn new vocabulary,but most of learning language applications can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament i devolpe the LanguageAssistant.  
 
 ## 語言小幫手的登入說明 login instructions of LanguageAssistant
 
@@ -35,7 +35,13 @@ First of all,you should input the URL(163.23.148.92/LA/login.html) , and you wil
  >>* 如果要建一個新的題庫，點擊建立一個新題庫按鈕，就會進入新增題庫頁面
  >>* 如果要使用別的功能，則點擊關閉視窗按鈕
 
-
+After you enter the home page,you will see three main functions
+* choose question bank
+ >* It will appear a small window and you can choose to edit/check question bank or create a new question bank through it after you click the 選擇題庫(choose question bank) button
+ >>* If you want to edit/check question bank, you can choose question bank through the combobox above the 編輯/查看(edit/check) button
+ >> * After choosing the question bank,click the 編輯/查看(edit/check) button and you will enter the edit/check page
+ >>* If you want to create a new question bank,click the 建立一個新題庫按鈕(create a new question bank) button and you will enter the create question bank page
+ >>* If you want to use others functions,you should click 關閉視窗(close window) button
 
 ## Collaborate with your team
 
