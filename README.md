@@ -17,7 +17,7 @@
  >* 完成註冊之後，系統會自動導向主頁面
 * 如果你有帳號的話，直接在登入畫面輸入 Useraccount 和 password，就可進入到主畫面
 
-* First of all,you should input the URL(163.23.148.92/LA/login.html) , and you will see the login page
+First of all,you should input the URL(163.23.148.92/LA/login.html) , and you will see the login page
 * If you don't have an account,you need to register one
  >* click the CREATE AN ACCOUNT button to register
  >* After enter the register page
@@ -34,6 +34,8 @@
  >> * 選擇完題庫之後，點擊編輯/查看按鈕，就會進入編輯/查看題庫頁面
  >>* 如果要建一個新的題庫，點擊建立一個新題庫按鈕，就會進入新增題庫頁面
  >>* 如果要使用別的功能，則點擊關閉視窗按鈕
+
+
 
 ## Collaborate with your team
 
