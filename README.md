@@ -5,7 +5,7 @@
 ## 語言小幫手的目的 The goal of LanguageAssistant
 
 * 有時候只想背那些自己不會的單字，但是市面上的學習語言APP都只能按照某個證照考試的內容下去背單字，為了解決這個問題所以開發了語言小幫手
-* Sometimes we only want to learn new vocabulary,but most of learning language applications can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament i devolpe the LanguageAssistant.  
+* Sometimes we only want to learn new vocabulary,but most of learning language applications can just make you learn vocabulary of some kinds of certificates or tests. To solve this predicament, I develop the LanguageAssistant.  
 
 ## 語言小幫手的登入說明 login instructions of LanguageAssistant
 
@@ -19,10 +19,10 @@
 
 First of all,you should input the URL(163.23.148.92/LA/login.html) , and you will see the login page
 * If you don't have an account,you need to register one
- >* click the CREATE AN ACCOUNT button to register
- >* After enter the register page
- >* You will finish the register after inputing the Useraccount and Password and clicking the submit button
- >* System will redirect to the home page after you finish the register
+ >* Click the CREATE AN ACCOUNT button to register
+ >* After you enter the register page
+ >* You will finish the registration after inputing the Useraccount and Password and clicking the submit button
+ >* The system will redirect to the home page after you finish the registration
 * If you have an account, you can input your Useraccount and Password in the login page and you can enter the home page
 
 ## 語言小幫手的功能說明（選擇題庫） function(choose Question Bank) instructions of LanguageAssistant
@@ -32,36 +32,46 @@ First of all,you should input the URL(163.23.148.92/LA/login.html) , and you wil
  >* 點選選擇題庫按鈕之後，他會出現一個小視窗，可以選擇要編輯/查看的題庫或是建一個新的題庫
  >>* 如果要編輯/查看題庫，編輯/查看的按鈕上方有下拉式選單可以選擇題庫
  >> * 選擇完題庫之後，點擊編輯/查看按鈕，就會進入編輯/查看題庫頁面
- >>* 如果要建一個新的題庫，點擊建立一個新題庫按鈕，就會進入新增題庫頁面
+ >>* 如果要建一個新的題庫，點擊建立一個新題庫按鈕，會出現一個小視窗可以輸入新題庫的名稱
+ >>* 輸入完題庫名稱之後，點擊建立按鈕，就會進入新增題庫頁面
  >>* 如果要使用別的功能，則點擊關閉視窗按鈕
 
 After you enter the home page,you will see three main functions
 * choose question bank
  >* It will appear a small window and you can choose to edit/check question bank or create a new question bank through it after you click the 選擇題庫(choose question bank) button
- >>* If you want to edit/check question bank, you can choose question bank through the combobox above the 編輯/查看(edit/check) button
+ >>* If you want to edit/check question bank, you can choose question bank through the combobox which is above the 編輯/查看(edit/check) button
  >> * After choosing the question bank,click the 編輯/查看(edit/check) button and you will enter the edit/check page
- >>* If you want to create a new question bank,click the 建立一個新題庫按鈕(create a new question bank) button and you will enter the create question bank page
- >>* If you want to use others functions,you should click 關閉視窗(close window) button
+ >>* If you want to create a new question bank,click the 建立一個新題庫按鈕(create a new question bank) button, it will appear a small window which you can input the name of the new question bank
+ >>* After inputting the name of the new question bank,click the 建立(create) button, and you will enter the (create question bank page)
+ >>* If you want to use other functions,you should click 關閉視窗(close window) button
 
-## Collaborate with your team
+## 語言小幫手的功能說明（編輯/查看題庫） function(edit/check Question Bank) instructions of LanguageAssistant
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+進入到編輯/查看題庫畫面之後，你就會看到左邊會列出所選擇題庫裡的單字
+* 如果你想要查看單字的翻譯，點擊位於該單字右邊的翻譯按鈕，則該單字的翻譯就會在查看翻譯那欄中出現(目前僅開發英翻中功能)
+* 如果你想編輯此題庫裡的單字，則可直接更改想修改的單字，並點擊修改按鈕，即可完成修改
+* 如果你不想修改題庫裡的單字，但想查別的單字的翻譯，可以修改某個單字，並點擊翻譯按鈕，不要點擊修改按鈕，則不會修改到題庫裡的單字
+* 如果你想回到主頁面，則可點擊上一頁按鈕
 
-## Test and Deploy
+After you enter the edit/check page, you will see the vocabulary in the question bank on the left-hand side
+* If you want to check the translation of the vocabulary,click the 翻譯(translate) button on the right-hand side of the vocabulary,and the translation of the vocabulary will appear in the column of 查看翻譯(check translation) (The system only develops English to Chinese now)
+* If you want to edit the vocabulary in this question bank,you can change vocabulary you want to revise and click 修改(change) button,and you will finish your change
+* If you don't want to change the vocabulary list in this question bank,but you want to know the translation of other vocabulary,you can change some of them and click the 翻譯(translate) button.Do not click the 修改(change) button,and you won't change the vocabulary in the question bank
+* If you want to go back to the home page,you should click the 上一頁(previous page) button
 
-Use the built-in continuous integration in GitLab.
+## 語言小幫手的功能說明（建立一個新題庫） function(create a new Question Bank) instructions of LanguageAssistant
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+輸入完新題庫的名稱之後，就會進入到新增題庫頁面
+* 你可以在左邊輸入想背的單字，目前以十個為上限
+* 每一個單字你都可以點擊右邊的翻譯按鈕以查看該單字的翻譯
+* 輸入完所有單字之後，點擊建立按鈕，則該題庫就建立成功，系統會重新導回主頁面
+* 如果你想回到主頁面，則可點擊上一頁按鈕
 
-***
+After you input the name of the new question bank,you will enter the (create question bank page)
+* You can input vocabulary which you want to know on the left-hand side,but the maxiumn is ten now
+* You can click the 翻譯(translate) button on the right-hand side of every vocabulary and then you can check the translation of it
+* After imputting all the vocabulary,click the 建立(create) button,and the creation will be finish.The system will redirect to the home page
+* If you want to go back to the home page,you should click the 上一頁(previous page) button
 
 # Editing this README
 
