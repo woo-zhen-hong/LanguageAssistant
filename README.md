@@ -73,9 +73,17 @@ After you input the name of the new question bank,you will enter the (create que
 * After imputting all the vocabulary,click the 建立(create) button,and the creation will be finish.The system will redirect to the home page
 * If you want to go back to the home page,you should click the 上一頁(previous page) button
 
-# Editing this README
+## 語言小幫手的功能說明（字彙練習） function(pratice volcabulary) instructions of LanguageAssistant
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+點擊字彙練習的按鈕就會產生一個小視窗可以選擇要練習的題庫
+* 在這個視窗的下拉式選單中可以選擇要練習的題庫
+* 選擇好要練習的題庫之後，點選練習按鈕就會進入練習的頁面
+* 如果你想回到主頁面，則可點擊關閉視窗按鈕
+
+After you click the 字彙練習(practice volcabulary) button, there will be a small dialog which you can choose the question bank you want 
+* You can choose the question bank you want through the combobox in the dialog
+* After choosing the question bank you want, click the 練習(pratice) button and you will be tranfered to the practice page
+* If you want to go back to the home page,you should click the 關閉視窗(close the dialog) button
 
 ## Suggestions for a good README
 Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
