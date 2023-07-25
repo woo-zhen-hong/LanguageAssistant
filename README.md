@@ -73,7 +73,7 @@ After you input the name of the new question bank,you will enter the (create que
 * After imputting all the vocabulary,click the 建立(create) button,and the creation will be finish.The system will redirect to the home page
 * If you want to go back to the home page,you should click the 上一頁(previous page) button
 
-## 語言小幫手的功能說明（字彙練習） function(pratice volcabulary) instructions of LanguageAssistant
+## 語言小幫手的功能說明（字彙練習選擇） function(choose practice of volcabulary) instructions of LanguageAssistant
 
 點擊字彙練習的按鈕就會產生一個小視窗可以選擇要練習的題庫
 * 在這個視窗的下拉式選單中可以選擇要練習的題庫
@@ -82,11 +82,24 @@ After you input the name of the new question bank,you will enter the (create que
 
 After you click the 字彙練習(practice volcabulary) button, there will be a small dialog which you can choose the question bank you want 
 * You can choose the question bank you want through the combobox in the dialog
-* After choosing the question bank you want, click the 練習(pratice) button and you will be tranfered to the practice page
+* After choosing the question bank you want, click the 練習(practice) button and you will be tranfered to the practice page
 * If you want to go back to the home page,you should click the 關閉視窗(close the dialog) button
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## 語言小幫手的功能說明（字彙練習） function(practice volcabulary) instructions of LanguageAssistant
+
+進入到練習題庫的頁面之後，就會看到剛剛所選的題庫裡的單字
+* 最右邊的練習格子可以讓你練習拼出題庫裡的單字
+* 當你練習完想練習的單字之後，點擊看翻譯按鈕，查看翻譯的格子中就會印出該單字的中文翻譯
+* 如果你想再練習一次，則點擊清除練習按鈕，所有的練習格子就會清除，則你可以再重新練習一次
+* 因為剛剛看了該單字的翻譯，如果你不想看到翻譯的結果，則可以點擊清除翻譯按鈕
+* 如果你想回到主頁面，則可以點擊上一頁按鈕
+
+After you enter the page of practicing question bank, you will see the volcabularies of choosen question bank
+* You can practice spelling the volcabularies in the question bank through the practicing boxs on the right hand side
+* After you practice the volcabularies, click the 看翻譯(show the translation) button, and you will see translations showed in the checking translation boxs
+* If you want to practice again, click the 清除練習(clean practice) button, all of the practicing boxs will be clean, and you can practice again
+* Because you watched the translations, you can click the 清除翻譯(clean translation) button, if you don't want to practice while the translations showing
+* If you want to go back to the main page, you can click the 上一頁(previous page) button
 
 ## Name
 Choose a self-explaining name for your project.
