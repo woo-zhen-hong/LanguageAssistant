@@ -101,7 +101,7 @@ After you enter the page of practicing question bank, you will see the volcabula
 * Because you watched the translations, you can click the 清除翻譯(clean translation) button, if you don't want to practice while the translations showing
 * If you want to go back to the main page, you can click the 上一頁(previous page) button
 
-## Name
+### Name
 Choose a self-explaining name for your project.
 
 ## Description
